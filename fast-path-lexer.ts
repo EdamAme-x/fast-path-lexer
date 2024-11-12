@@ -146,7 +146,7 @@ const pathLexer = (path: string): PathTree => {
         }
     }
 
-    return pathTree as PathTree
+    return pathTree
 }
 
 const pathTree = pathLexer("/abc/:id{\\d+}/*")
