@@ -14,12 +14,12 @@ type PathDynamic = {
     regex: string
 }
 
-type PathAlways = {
-    type: "always",
+type PathWildcard = {
+    type: "wildcard",
     value: "*"
 }
 
-type PathElement = PathSeparator | PathStatic | PathDynamic | PathAlways
+type PathElement = PathSeparator | PathStatic | PathDynamic | PathWildcard
 
 type PathTree = PathElement[]
 
@@ -136,8 +136,8 @@ const pathLexer = (path: string): PathTree => {
                 continue
             case "*":
                 pathTree.push({
-                    type: "always",
-                    value: "*"
+                    type: "wildcard",
+                    value: char
                 })
                 continue
             default:
